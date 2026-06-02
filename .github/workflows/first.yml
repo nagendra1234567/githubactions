@@ -30,11 +30,13 @@ jobs:
           echo test, and deploy your project.
   test:
     runs-on: ubuntu-24.04
+    needs: build
     steps:
       - name: execute test commands
         run: echo  "test world"
   deploy:
     runs-on: ubuntu-24.04
+    needs: test
     steps:
       - name: execute the deploy stage
         run: echo "deploy stage"
